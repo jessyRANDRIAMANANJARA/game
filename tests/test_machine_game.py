@@ -15,6 +15,8 @@ class TestDetermineWinner(unittest.TestCase):
 
     def test_machine_wins(self):
         self.assertEqual(determine_winner("scissors", "rock"), "machine")
+        self.assertEqual(determine_winner("rock", "paper"), "machine")
+        self.assertEqual(determine_winner("paper", "scissors"), "machine")
 
     def test_invalid_player_choice(self):
         with self.assertRaises(ValueError):
@@ -38,6 +40,16 @@ class TestGameplay(unittest.TestCase):
 
         mock_print.assert_any_call("Machine chose: rock")
         mock_print.assert_any_call("Result: machine wins")
+
+    def test_play_handles_invalid_choice(self):
+        with patch("builtins.input", return_value="lizard"), patch(
+            "machine_game.machine_choice", return_value="rock"
+        ), patch("builtins.print") as mock_print:
+            play()
+
+        mock_print.assert_called_with(
+            "Invalid choice: lizard. Please choose rock, paper, or scissors."
+        )
 
 
 if __name__ == "__main__":

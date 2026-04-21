@@ -30,7 +30,12 @@ def machine_choice() -> str:
 def play() -> None:
     player = input("Choose rock, paper, or scissors: ").strip().lower()
     machine = machine_choice()
-    result = determine_winner(player, machine)
+    try:
+        result = determine_winner(player, machine)
+    except ValueError:
+        print(f"Invalid choice: {player}. Please choose rock, paper, or scissors.")
+        return
+
     print(f"Machine chose: {machine}")
 
     if result == "draw":
