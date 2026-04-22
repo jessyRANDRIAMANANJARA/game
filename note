@@ -1,0 +1,16 @@
+creer venv :  python3 -m venv venv
+install flake8 :  source venv/bin/activate && pip install flake8
+activer l'env variable : source venv/bin/activate
+pour lancer flake8 depuis le dossier source : flake8 M01/ex0/ft_garden_intro.py
+Si tu veux l’appeler partout sans le chemin complet, ajoute ce dossier à ton PATH : export PATH="/home/hrandri2/EXO/M2/venv/bin:$PATH"
+tu peux maintenant l'appeler ou tu veux : flake8 M01/ex0/ft_garden_intro.py (sans le chemin complet) 
+
+install mypy apres avoir fais toutes ces etapes :  source /home/hrandri2/EXO/M2/venv/bin/activate && pip install mypy
+
+How to use mypy : > mypy . #pour verifier tous les fichiers .py
+pour afficher plus d'info : > mypy --show-error-codes ton_fichier.py
+
+
+configuration de l'alias py dans zshrc:  echo 'alias py="python3"' >> ~/.zshrc && source ~/.zshrc
+configuration de l'alias py dans fish:  echo 'alias py="python3"' >> ~/.config/fish/config.fish
+apres execute : source ~/.config/fish/config.fish
